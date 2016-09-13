@@ -3,9 +3,10 @@ This exercise uses a sample database of restaurants to query multiple sets of re
 
 
 ### Exercises
-#
 
-1. Provide a query showing just the names (and nothing else) of the Italian restaurants.
+
+
+- Provide a query showing just the names (and nothing else) of the Italian restaurants.
 ```
 Dominics-MacBook-Air(mongod-3.2.9) test>
 db.restaurants.find({cuisine: 'Italian'}, {name: true, _id: false}).limit(3)
@@ -20,9 +21,10 @@ db.restaurants.find({cuisine: 'Italian'}, {name: true, _id: false}).limit(3)
   "name": "Marchis Restaurant"
 }
 ```
-#
 
-2. Provide a query showing how many Bakeries have a name that start with M.
+
+
+- Provide a query showing how many Bakeries have a name that start with M.
 ```
 Dominics-MacBook-Air(mongod-3.2.9) test>
 db.restaurants.find({cuisine: 'Bakery', name: /^M/}, {name: true}).length()
@@ -31,7 +33,8 @@ db.restaurants.find({cuisine: 'Bakery', name: /^M/}, {name: true}).length()
 ```
 
 
-3. Provide a query showing the zip codes (and id's) of all restaurants with the word "Ice" in their cuisine.
+
+- Provide a query showing the zip codes (and id's) of all restaurants with the word "Ice" in their cuisine.
 ```
 Dominics-MacBook-Air(mongod-3.2.9) test>
 db.restaurants.find({cuisine: /^Ice/}, {'address.zipcode': true}).limit(3)
@@ -58,7 +61,8 @@ db.restaurants.find({cuisine: /^Ice/}, {'address.zipcode': true}).limit(3)
 ```
 
 
-4. Provide a query showing the street and street number of Chinese restaurants ordered by zip code.
+
+- Provide a query showing the street and street number of Chinese restaurants ordered by zip code.
 ```
 Dominics-MacBook-Air(mongod-3.2.9) test>
 db.restaurants.find({cuisine: 'Chinese'}, {'address.zipcode': true, 'address.building
@@ -91,7 +95,8 @@ db.restaurants.find({cuisine: 'Chinese'}, {'address.zipcode': true, 'address.bui
 ```
 
 
-5. Show only the American restaurants in Manhattan.
+
+- Show only the American restaurants in Manhattan.
 ```
 Dominics-MacBook-Air(mongod-3.2.9) test> db.restaurants.find({cuisine: 'American ', borough: 'Manhattan'}, {name: true}).limit(3)
 {
@@ -109,7 +114,8 @@ Dominics-MacBook-Air(mongod-3.2.9) test> db.restaurants.find({cuisine: 'American
 ```
 
 
-6. Provide a query showing the restaurants that have been graded exactly 4 times.
+
+- Provide a query showing the restaurants that have been graded exactly 4 times.
 ```
 Dominics-MacBook-Air(mongod-3.2.9) test>
 db.restaurants.find({grades: {$size: 4}}, {name: true, 'grades.score': true}).limit(2
@@ -155,7 +161,8 @@ db.restaurants.find({grades: {$size: 4}}, {name: true, 'grades.score': true}).li
 ```
 
 
-7. Provide a query showing only id, name and 2 grades from each restaurant on Broadway.
+
+- Provide a query showing only id, name and 2 grades from each restaurant on Broadway.
 ```
 Dominics-MacBook-Air(mongod-3.2.9) test>
 db.restaurants.find({'address.street': 'Broadway'}, {name: true, grades: {$slice: 2}}
@@ -198,7 +205,8 @@ db.restaurants.find({'address.street': 'Broadway'}, {name: true, grades: {$slice
 ```
 
 
-8. Provide a query showing the 5 pizza restaurants in the Bronx with the highest score on an evaluation.
+
+- Provide a query showing the 5 pizza restaurants in the Bronx with the highest score on an evaluation.
 ```
 Dominics-MacBook-Air(mongod-3.2.9) test>
 db.restaurants.find({'grades.score': {$gt: 80}}, {name: true}).sort({'grades.score':
@@ -227,7 +235,8 @@ db.restaurants.find({'grades.score': {$gt: 80}}, {name: true}).sort({'grades.sco
 ```
 
 
-9. Provide a query to find all of the restaurants in Brooklynn and list only the 21st-26th results when ordered alphabetically by name
+
+- Provide a query to find all of the restaurants in Brooklynn and list only the 21st-26th results when ordered alphabetically by name
 ```
 Dominics-MacBook-Air(mongod-3.2.9) test>
 db.restaurants.find({borough: 'Brooklyn', name: /^A/}, {name: true}).sort({name: 1}).
@@ -257,7 +266,8 @@ skip(20).limit(5)
 ```
 
 
-10. Provide a query that returns all pizza and Italian restaurants in reverse alphabetic order.
+
+- Provide a query that returns all pizza and Italian restaurants in reverse alphabetic order.
 ```
 Dominics-MacBook-Air(mongod-3.2.9) test>
 db.restaurants.find({cuisine: 'Italian', cuisine: 'Pizza'}, {name: true}).sort({name:
