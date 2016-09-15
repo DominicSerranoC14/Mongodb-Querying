@@ -2,6 +2,17 @@
 This exercise uses a sample database of restaurants to query multiple sets of requested information. The requests are defined in the exercises section.
 
 
+## Requirements
+
+-   Import the restaurant sample dataset from [MongoDB][sampledata] using the
+[`mongoimport`][mongoimport] command. This will import some sample data to a
+database named "test" with a collection named "restaurants".
+-   Create a markdown (.md) file where you can record the queries that return
+the requested information. Start with the numbered list below and add your query
+after each item.
+
+
+
 ### Exercises
 
 
@@ -295,3 +306,8 @@ db.restaurants.find({cuisine: 'Italian', cuisine: 'Pizza'}, {name: true}).sort({
   "name": "Xochil Pizza"
 }
 ```
+
+
+
+[mongoimport]: https://docs.mongodb.com/manual/reference/program/mongoimport/
+[sampledata]: https://docs.mongodb.com/getting-started/shell/import-data/
